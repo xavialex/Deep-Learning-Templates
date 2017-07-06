@@ -75,8 +75,8 @@ from keras.preprocessing import image
 test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size = (64, 64))
 test_image = image.img_to_array(test_image) # Ahora test_image es de tamaño 64x64x3
 test_image = np.expand_dims(test_image, axis = 0) # La función predict toma np de 64x64x4, así que se usa expand_dims para aumentar la dimensión
-result = classifier.predict(test_image)
-training_set.class_indices
+result = classifier.predict(test_image) # Se obtiene el resultado (1 en este caso) pero no sabemos si corresponde a perro o gato
+training_set.class_indices # Esta línea dice qué etiqueta corresponde con qué valor
 if result[0][0] == 1:
     prediction = 'dog'
 else:
